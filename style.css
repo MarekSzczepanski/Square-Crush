@@ -5,6 +5,7 @@
 
 .body {
     position: relative;
+    animation: squareWhitening 5s;
 }
 
 .wrap {
@@ -29,6 +30,7 @@
     height: 100px;
     box-sizing: border-box;
     position: absolute;
+    border: solid black 1px;
 }
 
 div div {
