@@ -10,8 +10,6 @@ Square crush is a browser game inspired by Candy Crush Saga, which is my wife's 
 ⋅Javascript  
 
 ## Recent changes
-1) Add vertical crush - crushing three squares with the same color in vertical line  
-2) Add first animation formula - when there is a free space under any square, that square is falling
-down  
-3) Add readme
-4) Add thingsIHaveLearnt text file, containing the list of unexpected issues I had to learn during this project  
+1) Small fixes in SpaceChecker.js.  
+2) Create new object - InitialSquares.js. Cut function making first squares and paste it there.  
+

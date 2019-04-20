@@ -37,20 +37,28 @@ div div {
     position: absolute;
 }
 
+#n0 {
+    top: 0;
+}
+
 #n1 {
     left: 100px;
+    top: 0;
 }
 
 #n2 {
     left: 200px;
+    top: 0;
 }
 
 #n3 {
     left: 300px;
+    top: 0;
 }
 
 #n4 {
     left: 400px;
+    top: 0;
 }
 
 #n5 {
