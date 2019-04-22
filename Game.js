@@ -1,9 +1,7 @@
 class Game {
     constructor() {
-       this.newSpaceChecker = new InitialSquares;
-       const doSquareGoDown = this.newSpaceChecker.initialSquares();
-       this.newCrush = new Crush;
-       const doCrush = this.newCrush.upDown();
+       this.newInitialSquares = new InitialSquares;
+       const doInitialSquares = this.newInitialSquares.initialSquares();
     }
 }
 new Game;

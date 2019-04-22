@@ -10,7 +10,12 @@ class InitialSquares {
             iSquare.style.backgroundColor = color;
             iSquare.classList.remove("space");
             iSquare.classList.add("square");
-        } 
+        }
+        const timeout = () => {
+        this.newCrush = new Crush;
+        const doCrush = this.newCrush.upDown();
+        }
+        setTimeout(timeout, 2000);
     }
 }
 
