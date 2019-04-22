@@ -10,55 +10,11 @@ class SpaceChecker {
             }
         }
         if (space === 1) {
-            const newSquaresAfterCrush = (iFor, iFor2, topISquare, topNewSquare) => {
-                for (let i=iFor; i<iFor2; i++) {
-                    const iSquare = document.getElementById("n"+i);
-                    const lowerSquare = document.getElementById("n"+(i+5));
-                    if (iSquare.classList.contains("square")
-                    && lowerSquare.classList.contains("space")) {
-                        iSquare.style.top = topISquare;
-                        const newSquare = document.createElement("div");
-                        document.querySelector(".wrap").appendChild(newSquare);
-                        newSquare.classList.add("space");
-                        newSquare.setAttribute("id", "n"+i);
-                        newSquare.style.top = topNewSquare;
-                        if (i === iFor2 - 4) {
-                            iSquare.style.left = "100px";
-                            newSquare.style.left = "100px";
-                        }
-                        else if (i === iFor2 - 3) {
-                            iSquare.style.left = "200px";
-                            newSquare.style.left = "200px";
-                        }
-                        else if (i === iFor2 - 2) {
-                            iSquare.style.left = "300px";
-                            newSquare.style.left = "300px";
-                        }
-                        else if (i === iFor2 - 1) {
-                            iSquare.style.left = "400px";
-                            newSquare.style.left = "400px";
-                        }
-                        lowerSquare.classList.add("square");
-                        lowerSquare.classList.add("block");
-                        lowerSquare.classList.remove("space");
-                        iSquare.animate([
-                            {top: topNewSquare}, 
-                            {top: topISquare}
-                            ], 
-                            { 
-                            duration: 2000,
-                            fill: "forwards"
-                        });
-                        const squareToRemove = lowerSquare;
-                        lowerSquare.parentNode.removeChild(squareToRemove);
-                        iSquare.setAttribute("id", "n"+(i+5));
-                    }
-                }
-            }
-            newSquaresAfterCrush(15, 20, "400px", "300px");
-            newSquaresAfterCrush(10, 15, "300px", "200px");
-            newSquaresAfterCrush(5, 10, "200px", "100px");
-            newSquaresAfterCrush(0, 5, "100px", 0);
+            this.nSAC = new NewSquaresAfterCrush;
+            const nSACRow4 = this.nSAC.newSquaresAfterCrush(15, 20, "400px", "300px", 4);
+            const nSACRow3 = this.nSAC.newSquaresAfterCrush(10, 15, "300px", "200px", 3);
+            const nSACRow2 = this.nSAC.newSquaresAfterCrush(5, 10, "200px", "100px", 2);
+            const nSACRow1 = this.nSAC.newSquaresAfterCrush(0, 5, "100px", 0, 1);
             for (let i=0; i<5; i++) {
                 const iSquare = document.getElementById("n"+i);
                 if (iSquare.classList.contains("space")) {
@@ -67,7 +23,7 @@ class SpaceChecker {
                     const newSquare = document.createElement("div");
                     document.querySelector(".wrap").appendChild(newSquare);
                     newSquare.classList.add("square");
-                    newSquare.classList.add("block");
+                    newSquare.classList.add("row"+1);
                     newSquare.setAttribute("id", "n"+i);
                     if (i === 1) {
                         newSquare.style.left = "100px"; 
