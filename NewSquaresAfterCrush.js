@@ -32,16 +32,8 @@ class NewSquaresAfterCrush {
                     iSquare.style.left = "400px";
                     newSquare.style.left = "400px";
                 }
-                lowerSquare.classList.add("square");
-                lowerSquare.classList.remove("space");
-                iSquare.animate([
-                    {top: topNewSquare}, 
-                    {top: topISquare}
-                    ], 
-                    { 
-                    duration: 2000,
-                    fill: "forwards"
-                });
+                this.newAnimate = new Animate;
+                const doAnimate = this.newAnimate.squareAnimation(iSquare, "top", topNewSquare, topISquare);
                 const squareToRemove = lowerSquare;
                 lowerSquare.parentNode.removeChild(squareToRemove);
                 iSquare.setAttribute("id", "n"+(i+5));

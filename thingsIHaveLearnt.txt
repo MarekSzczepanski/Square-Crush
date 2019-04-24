@@ -1,1 +1,40 @@
 1) How to make keyframes animations in JS.
+2) When animate method was used to change div's position, other animation has to be used to change it's position again. Example:
+
+I have used this to change div's top value in NewSquaresAfterCrush.js:
+
+iSquare.animate([
+    {top: topNewSquare}, 
+    {top: topISquare}
+    ], 
+    { 
+    duration: 2000,
+    fill: "forwards"
+});
+
+and then tried to use this in SqareSwitcher.js, but it didn't work:
+
+clickedSquare.style.top = position;
+secondSquare.style.top = position2;
+
+So I had to use animate method in SquareSwitcher too:
+
+clickedSquare.animate([
+    {top: position2}, 
+    {top: position}
+    ], 
+    { 
+    duration: 2000,
+    fill: "forwards"
+});
+secondSquare.animate([
+    {top: position}, 
+    {top: position2}
+    ], 
+    { 
+    duration: 2000,
+    fill: "forwards"
+});
+
+It took me two hours to figure it out.
+

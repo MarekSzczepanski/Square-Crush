@@ -10,8 +10,6 @@ Square crush is a browser game inspired by Candy Crush Saga, which is my wife's 
 ⋅Javascript  
 
 ## Recent changes
-1) Add horizontal crush.  
-2) Make more than 3x crush possible (by removing unnecessary code).  
-3) Remove some more unnecessary classes in index.html.  
-4) Add row classes to avoid horizontal crush bugs (for example crushing squares 5, 6 and 7 because of id number crushing formula).  
-5) Create new object - NewSquaresAfterCrush.js, which is a method taken from SpaceChecker.js.  
+1) Add square moving with animations (MoveSquare.js and SquareSwitcher.js).     
+2) Create one object for all animations (Animate.js). 
+3) Add fifth square color.

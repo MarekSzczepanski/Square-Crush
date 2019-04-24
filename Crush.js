@@ -5,16 +5,6 @@ class Crush {
     const arrAllSquares = [];
     let crush = 0;
     let rowNumber;
-    const animations = (squareNumber, startWithThisColor) => {
-      squareNumber.animate([
-        {backgroundColor: startWithThisColor}, 
-        {backgroundColor: "white"}
-        ], 
-        { 
-        duration: 2000,
-        fill: "forwards"
-      });
-    }
     for (let i=0; i<25; i++) {
       arrAllSquares.push(document.getElementById("n"+i));
     }
@@ -31,14 +21,15 @@ class Crush {
       else if (i<21) {
         rowNumber = 4;
       }
-      else {
+      else if (i<25) {
         rowNumber = 5;
       }
       if (i<15 && arrAllSquares[i].style.backgroundColor === arrAllSquares[i+5].style.backgroundColor && arrAllSquares[i].style.backgroundColor === arrAllSquares[i+10].style.backgroundColor) { 
         console.log("vertical crush");
-        animations(arrAllSquares[i], document.getElementById("n"+i).style.backgroundColor);
-        animations(arrAllSquares[i+5], document.getElementById("n"+(i+5)).style.backgroundColor);
-        animations(arrAllSquares[i+10], document.getElementById("n"+(i+10)).style.backgroundColor);
+        this.newAnimate = new Animate;
+        const doAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
+        const doAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i+5], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
+        const doAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+10], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
         arrAllSquares[i].classList.remove("square");
         arrAllSquares[i].classList.add("space");
         arrAllSquares[i+5].classList.remove("square");
@@ -49,9 +40,10 @@ class Crush {
       }
       if (i>0 && i<24 && arrAllSquares[i].style.backgroundColor === arrAllSquares[i-1].style.backgroundColor && arrAllSquares[i].style.backgroundColor === arrAllSquares[i+1].style.backgroundColor && arrAllSquares[i].classList.contains("row"+rowNumber) && arrAllSquares[i-1].classList.contains("row"+rowNumber) && arrAllSquares[i+1].classList.contains("row"+rowNumber)) {
         console.log("horizontal crush");
-        animations(arrAllSquares[i], document.getElementById("n"+i).style.backgroundColor);
-        animations(arrAllSquares[i-1], document.getElementById("n"+(i-1)).style.backgroundColor);
-        animations(arrAllSquares[i+1], document.getElementById("n"+(i+1)).style.backgroundColor);
+        this.newAnimate = new Animate;
+        const doAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
+        const doAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i-1], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
+        const doAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+1], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
         arrAllSquares[i].classList.remove("square");
         arrAllSquares[i].classList.add("space");
         arrAllSquares[i-1].classList.remove("square");
@@ -68,6 +60,8 @@ class Crush {
       }
       else {
         console.log("no crush");
+        this.newMoveSquare = new MoveSquare;
+        const doMoveSquare = this.newMoveSquare.moveSquare();
       }
     }
     setTimeout(timeoutForTesting, 2000);

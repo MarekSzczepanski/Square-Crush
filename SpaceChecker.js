@@ -18,33 +18,36 @@ class SpaceChecker {
             for (let i=0; i<5; i++) {
                 const iSquare = document.getElementById("n"+i);
                 if (iSquare.classList.contains("space")) {
-                    const squareToRemove = iSquare;
-                    iSquare.parentNode.removeChild(squareToRemove);
                     const newSquare = document.createElement("div");
                     document.querySelector(".wrap").appendChild(newSquare);
-                    newSquare.classList.add("square");
-                    newSquare.classList.add("row"+1);
-                    newSquare.setAttribute("id", "n"+i);
-                    if (i === 1) {
-                        newSquare.style.left = "100px"; 
+                    if (i===0) {
+                        newSquare.classList.add("column1");
+                        newSquare.style.left = 0;
                     }
-                    else if (i === 2) {
+                    else if (i===1) {
+                        newSquare.classList.add("column2");
+                        newSquare.style.left = "100px";
+                    }
+                    else if (i===2) {
+                        newSquare.classList.add("column3");
                         newSquare.style.left = "200px";
                     }
-                    else if (i === 3) {
+                    else if (i===3) {
+                        newSquare.classList.add("column4");
                         newSquare.style.left = "300px";
                     }
-                    else if (i === 4) {
+                    else if (i===4) {
+                        newSquare.classList.add("column5");
                         newSquare.style.left = "400px";
-                    } 
-                    document.getElementById("n"+i).animate([
-                        {top: "-100px"}, 
-                        {top: 0}
-                        ], 
-                        { 
-                        duration: 2000,
-                        fill: "forwards"
-                    });
+                    }
+                    const squareToRemove = iSquare;
+                    iSquare.parentNode.removeChild(squareToRemove);
+                    newSquare.classList.add("square");
+                    newSquare.classList.add("row"+1);
+                    newSquare.style.top = 0;
+                    newSquare.setAttribute("id", "n"+i);
+                    this.newAnimate = new Animate;
+                    const doAnimate = this.newAnimate.squareAnimation(document.getElementById("n"+i), "top", "-100px", 0);
                     this.newColor = new RandomSquareColor;
                     const color = this.newColor.getRandomColor();
                     newSquare.style.backgroundColor = color;
