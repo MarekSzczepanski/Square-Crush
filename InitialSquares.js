@@ -43,9 +43,9 @@ class InitialSquares {
         }
         const timeout = () => {
             this.newCrush = new Crush;
-            const doCrush = this.newCrush.upDown();
+            const doCrush = this.newCrush.crush();
         }
-        setTimeout(timeout, 2000);
+        setTimeout(timeout, 1000);
     }
 }
 

@@ -10,6 +10,8 @@ Square crush is a browser game inspired by Candy Crush Saga, which is my wife's 
 ⋅Javascript  
 
 ## Recent changes
-1) Add square moving with animations (MoveSquare.js and SquareSwitcher.js).     
-2) Create one object for all animations (Animate.js). 
-3) Add fifth square color.
+1) Rename MoveChecker.js to Keychecker.js.  
+2) Add crush after moving square.  
+3) Add border animation.  
+4) Add wrong switch detecting.  
+5) Add bugfixing loops in Crush.js.

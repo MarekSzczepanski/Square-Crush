@@ -53,16 +53,16 @@ class SpaceChecker {
                     newSquare.style.backgroundColor = color;
                 }
             }
-            const timeoutForTesting = () => {
+            const timeout = () => {
                 this.newSpaceChecker = new SpaceChecker;
                 const doSpaceChecker = this.newSpaceChecker.spaceChecker(); 
             }
-            setTimeout(timeoutForTesting, 2000);
+            setTimeout(timeout, 1000);
         }
         else if (space === 0) {
             console.log("no space");
             this.newCrush = new Crush;
-            const doCrush = this.newCrush.upDown();
+            const doCrush = this.newCrush.crush();
         } 
     }          
 }  

@@ -1,8 +1,8 @@
 class Crush {
   constructor() {      
   }
-  upDown() {
-    const arrAllSquares = [];
+  crush(switchCheck) {
+    let arrAllSquares = [];
     let crush = 0;
     let rowNumber;
     for (let i=0; i<25; i++) {
@@ -30,6 +30,9 @@ class Crush {
         const doAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
         const doAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i+5], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
         const doAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+10], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
+        const doBorderAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "border", "solid black 1px", "solid white 1px"); 
+        const doBorderAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i+5], "border", "solid black 1px", "solid white 1px");
+        const doBorderAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+10], "border", "solid black 1px", "solid white 1px");
         arrAllSquares[i].classList.remove("square");
         arrAllSquares[i].classList.add("space");
         arrAllSquares[i+5].classList.remove("square");
@@ -44,6 +47,9 @@ class Crush {
         const doAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
         const doAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i-1], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
         const doAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+1], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
+        const doBorderAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "border", "solid black 1px", "solid white 1px"); 
+        const doBorderAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i-1], "border", "solid black 1px", "solid white 1px");
+        const doBorderAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+1], "border", "solid black 1px", "solid white 1px");
         arrAllSquares[i].classList.remove("square");
         arrAllSquares[i].classList.add("space");
         arrAllSquares[i-1].classList.remove("square");
@@ -53,17 +59,26 @@ class Crush {
         crush = 1;
       }
     }
-    const timeoutForTesting = () => {
-      if (crush === 1) {
-        this.newSpaceChecker = new SpaceChecker;
-        const doSpaceChecker = this.newSpaceChecker.spaceChecker();
+    if (crush === 1) {
+      for (let i=0; i<25; i++) {
+        if (document.getElementById("n"+i).classList.contains("move")) {
+          document.getElementById("n"+i).classList.remove("move");
+        }
+        else if (document.getElementById("n"+i).classList.contains("move2")) {
+          document.getElementById("n"+i).classList.remove("move2");
+        }
       }
-      else {
-        console.log("no crush");
-        this.newMoveSquare = new MoveSquare;
-        const doMoveSquare = this.newMoveSquare.moveSquare();
-      }
+      this.newSpaceChecker = new SpaceChecker;
+      const doSpaceChecker = this.newSpaceChecker.spaceChecker();
     }
-    setTimeout(timeoutForTesting, 2000);
+    else if (crush === 0 && switchCheck === "switched") {
+      this.newWrongSwitch = new WrongSwitch;
+      const doWrongSwitch = this.newWrongSwitch.wrongSwitch();
+    }
+    else if (crush === 0) {
+      console.log("no crush");
+      this.newKeyChecker = new KeyChecker;
+      const doKeyChecker = this.newKeyChecker.keyChecker();
+    }
   }
 }
