@@ -1,7 +1,7 @@
 class RandomSquareColor {
     constructor() {
-        const arrColors = ["crimson", "limegreen", "mediumturquoise", "goldenrod", "mediumorchid"];
-        let randomNumber = Math.floor((Math.random() * 5));
+        const arrColors = ["#FF3333", "#00CC00", "royalblue", "#CCCC00", "#BE68BE", "#C26A42"];
+        let randomNumber = Math.floor((Math.random() * 6));
         this.getRandomColor = () => arrColors[randomNumber];
     }
 }

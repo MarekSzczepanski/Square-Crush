@@ -3,10 +3,11 @@ class SpaceChecker {
     }
     spaceChecker() {
         let space = 0;
+        let squaresCrushed = document.querySelector("span").textContent;
         for (let i=0; i<25; i++) {
-            if (document.getElementById("n"+i).classList.contains("space")) {
+            if (document.getElementById(i).classList.contains("space")) {
                 console.log("space");
-                space = 1;
+                space = 1; 
             }
         }
         if (space === 1) {
@@ -16,27 +17,29 @@ class SpaceChecker {
             const nSACRow2 = this.nSAC.newSquaresAfterCrush(5, 10, "200px", "100px", 2);
             const nSACRow1 = this.nSAC.newSquaresAfterCrush(0, 5, "100px", 0, 1);
             for (let i=0; i<5; i++) {
-                const iSquare = document.getElementById("n"+i);
-                if (iSquare.classList.contains("space")) {
+                const iSquare = document.getElementById(i);
+                if (iSquare.classList.contains("space")) {   
                     const newSquare = document.createElement("div");
                     document.querySelector(".wrap").appendChild(newSquare);
-                    if (i===0) {
+                    squaresCrushed++;
+                    document.querySelector("span").textContent = squaresCrushed;
+                    if (i === 0) {
                         newSquare.classList.add("column1");
                         newSquare.style.left = 0;
                     }
-                    else if (i===1) {
+                    else if (i === 1) {
                         newSquare.classList.add("column2");
                         newSquare.style.left = "100px";
                     }
-                    else if (i===2) {
+                    else if (i === 2) {
                         newSquare.classList.add("column3");
                         newSquare.style.left = "200px";
                     }
-                    else if (i===3) {
+                    else if (i === 3) {
                         newSquare.classList.add("column4");
                         newSquare.style.left = "300px";
                     }
-                    else if (i===4) {
+                    else if (i === 4) {
                         newSquare.classList.add("column5");
                         newSquare.style.left = "400px";
                     }
@@ -45,9 +48,9 @@ class SpaceChecker {
                     newSquare.classList.add("square");
                     newSquare.classList.add("row"+1);
                     newSquare.style.top = 0;
-                    newSquare.setAttribute("id", "n"+i);
+                    newSquare.setAttribute("id", i);
                     this.newAnimate = new Animate;
-                    const doAnimate = this.newAnimate.squareAnimation(document.getElementById("n"+i), "top", "-100px", 0);
+                    const doAnimate = this.newAnimate.squareAnimation(document.getElementById(i), "top", "-100px", 0);
                     this.newColor = new RandomSquareColor;
                     const color = this.newColor.getRandomColor();
                     newSquare.style.backgroundColor = color;

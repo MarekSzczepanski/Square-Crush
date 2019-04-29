@@ -2,9 +2,8 @@
  margin: 0;
  padding: 0;
 }
-
-.body {
-    position: relative;
+html {
+    background-color: slategray;
 }
 
 .wrap {
@@ -13,6 +12,7 @@
     width: 500px;
     border: solid black 3px;
     position: relative;
+    background-color: white;
 }
 
 .square {
@@ -33,4 +33,40 @@
 
 div div {
     position: absolute;
+}
+
+.active {
+    width: 400px;
+    height: 250px;
+    line-height: 83px;
+    background-color: black;
+    top: 125px;
+    left: 50px;
+    opacity: 0.9;
+    z-index: 2;
+    border: white 2px solid;
+}
+
+.info {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 30px;
+    color: deeppink;
+    text-align: center;
+    display: none;
+}
+
+.side {
+    width: 220px;
+    height: 30px;
+    background-color: darkgray;
+    position: absolute;
+    left: 50px;
+    top: 150px;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    line-height: 30px;
+}
+
+span {
+    font-weight: bold;
 }

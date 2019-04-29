@@ -26,7 +26,7 @@ class SquareSwitcher {
             clickedSquare.classList.add("move");
             secondSquare.classList.add("move2");
             console.log("moved");
-            const crushTimeout = () => { 
+            const crushTimeout = () => {
                 this.newCrush = new Crush;
                 const doCrush = this.newCrush.crush("switched");
             }

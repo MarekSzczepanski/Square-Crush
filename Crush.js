@@ -2,11 +2,11 @@ class Crush {
   constructor() {      
   }
   crush(switchCheck) {
-    let arrAllSquares = [];
+    const arrAllSquares = [];
     let crush = 0;
     let rowNumber;
     for (let i=0; i<25; i++) {
-      arrAllSquares.push(document.getElementById("n"+i));
+      arrAllSquares.push(document.getElementById(i));
     }
     for (let i=0; i<25; i++) {
       if (i<6) {
@@ -27,9 +27,9 @@ class Crush {
       if (i<15 && arrAllSquares[i].style.backgroundColor === arrAllSquares[i+5].style.backgroundColor && arrAllSquares[i].style.backgroundColor === arrAllSquares[i+10].style.backgroundColor) { 
         console.log("vertical crush");
         this.newAnimate = new Animate;
-        const doAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
-        const doAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i+5], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
-        const doAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+10], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
+        const doAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
+        const doAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i+5], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
+        const doAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+10], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
         const doBorderAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "border", "solid black 1px", "solid white 1px"); 
         const doBorderAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i+5], "border", "solid black 1px", "solid white 1px");
         const doBorderAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+10], "border", "solid black 1px", "solid white 1px");
@@ -44,9 +44,9 @@ class Crush {
       if (i>0 && i<24 && arrAllSquares[i].style.backgroundColor === arrAllSquares[i-1].style.backgroundColor && arrAllSquares[i].style.backgroundColor === arrAllSquares[i+1].style.backgroundColor && arrAllSquares[i].classList.contains("row"+rowNumber) && arrAllSquares[i-1].classList.contains("row"+rowNumber) && arrAllSquares[i+1].classList.contains("row"+rowNumber)) {
         console.log("horizontal crush");
         this.newAnimate = new Animate;
-        const doAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
-        const doAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i-1], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
-        const doAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+1], "backgroundColor", document.getElementById("n"+i).style.backgroundColor, "white");
+        const doAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
+        const doAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i-1], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
+        const doAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+1], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
         const doBorderAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "border", "solid black 1px", "solid white 1px"); 
         const doBorderAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i-1], "border", "solid black 1px", "solid white 1px");
         const doBorderAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+1], "border", "solid black 1px", "solid white 1px");
@@ -61,11 +61,11 @@ class Crush {
     }
     if (crush === 1) {
       for (let i=0; i<25; i++) {
-        if (document.getElementById("n"+i).classList.contains("move")) {
-          document.getElementById("n"+i).classList.remove("move");
+        if (document.getElementById(i).classList.contains("move")) {
+          document.getElementById(i).classList.remove("move");
         }
-        else if (document.getElementById("n"+i).classList.contains("move2")) {
-          document.getElementById("n"+i).classList.remove("move2");
+        else if (document.getElementById(i).classList.contains("move2")) {
+          document.getElementById(i).classList.remove("move2");
         }
       }
       this.newSpaceChecker = new SpaceChecker;
@@ -77,8 +77,8 @@ class Crush {
     }
     else if (crush === 0) {
       console.log("no crush");
-      this.newKeyChecker = new KeyChecker;
-      const doKeyChecker = this.newKeyChecker.keyChecker();
+      this.newCrushChecker = new CrushChecker;
+      const doCrushChecker = this.newCrushChecker.crushChecker();
     }
   }
 }

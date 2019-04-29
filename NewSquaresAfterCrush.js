@@ -4,8 +4,8 @@ class NewSquaresAfterCrush {
     }
     newSquaresAfterCrush(iFor, iFor2, topISquare, topNewSquare, rowNumber) {
         for (let i=iFor; i<iFor2; i++) {
-            const iSquare = document.getElementById("n"+i);
-            const lowerSquare = document.getElementById("n"+(i+5));
+            const iSquare = document.getElementById(i);
+            const lowerSquare = document.getElementById(i+5);
             if (iSquare.classList.contains("square")
             && lowerSquare.classList.contains("space")) {
                 iSquare.style.top = topISquare;
@@ -14,7 +14,7 @@ class NewSquaresAfterCrush {
                 const newSquare = document.createElement("div");
                 document.querySelector(".wrap").appendChild(newSquare);
                 newSquare.classList.add("space");
-                newSquare.setAttribute("id", "n"+i);
+                newSquare.setAttribute("id", i);
                 newSquare.style.top = topNewSquare;
                 if (i === iFor2 - 4) {
                     iSquare.style.left = "100px";
@@ -36,7 +36,7 @@ class NewSquaresAfterCrush {
                 const doAnimate = this.newAnimate.squareAnimation(iSquare, "top", topNewSquare, topISquare);
                 const squareToRemove = lowerSquare;
                 lowerSquare.parentNode.removeChild(squareToRemove);
-                iSquare.setAttribute("id", "n"+(i+5));
+                iSquare.setAttribute("id", i+5);
             }
         }
     }
