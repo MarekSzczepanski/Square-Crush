@@ -3,7 +3,7 @@ class SpaceChecker {
     }
     spaceChecker() {
         let space = 0;
-        let squaresCrushed = document.querySelector("span").textContent;
+        let squaresCrushed = document.querySelector(".pointsSpan").textContent;
         for (let i=0; i<25; i++) {
             if (document.getElementById(i).classList.contains("space")) {
                 console.log("space");
@@ -22,7 +22,7 @@ class SpaceChecker {
                     const newSquare = document.createElement("div");
                     document.querySelector(".wrap").appendChild(newSquare);
                     squaresCrushed++;
-                    document.querySelector("span").textContent = squaresCrushed;
+                    document.querySelector(".pointsSpan").textContent = squaresCrushed;
                     if (i === 0) {
                         newSquare.classList.add("column1");
                         newSquare.style.left = 0;
@@ -50,7 +50,7 @@ class SpaceChecker {
                     newSquare.style.top = 0;
                     newSquare.setAttribute("id", i);
                     this.newAnimate = new Animate;
-                    const doAnimate = this.newAnimate.squareAnimation(document.getElementById(i), "top", "-100px", 0);
+                    const doAnimate = this.newAnimate.animation(document.getElementById(i), "top", "-100px", 0);
                     this.newColor = new RandomSquareColor;
                     const color = this.newColor.getRandomColor();
                     newSquare.style.backgroundColor = color;

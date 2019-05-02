@@ -2,8 +2,10 @@ class InitialSquares {
     constructor() {
           
     }
-    initialSquares() {
+    initialSquares(points) {
         for (let i=24; i>-1; i--) {
+            document.querySelector(".pointsSpan").textContent = points;
+            console.log(points);
             const iSquare = document.getElementById(i);
             this.newColor = new RandomSquareColor;
             const color = this.newColor.getRandomColor();   

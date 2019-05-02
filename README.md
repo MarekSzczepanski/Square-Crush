@@ -10,10 +10,14 @@ Square crush is a browser game inspired by Candy Crush Saga, which is my wife's 
 ⋅Javascript  
 
 ## Recent changes
-1) Add wrong button press detecting.  
-2) Simplify id numbers and delete few unnecessary loops thanks to this.  
-3) Change click events to mousedown events to avoid bugs.  
-4) Add square randomization when move is not possible.  
-5) Add crushed squares counter.  
-6) Change background color and square colors.  
-7) Add sixth square color.
+1) Add curtain which covers new squares above the box.    
+2) Add border divs replacing lack of 1px of box border after crush.    
+3) Add moves counter.    
+4) Add game over with new game option.       
+5) Fix event listener bug.      
+6) Add highscores.      
+7) Add change player option.      
+8) Add main.js file.    
+9) Add music.   
+10) Remove scrollbar.  
+11) Fix wrong button bug.

@@ -33,7 +33,7 @@ class NewSquaresAfterCrush {
                     newSquare.style.left = "400px";
                 }
                 this.newAnimate = new Animate;
-                const doAnimate = this.newAnimate.squareAnimation(iSquare, "top", topNewSquare, topISquare);
+                const doAnimate = this.newAnimate.animation(iSquare, "top", topNewSquare, topISquare);
                 const squareToRemove = lowerSquare;
                 lowerSquare.parentNode.removeChild(squareToRemove);
                 iSquare.setAttribute("id", i+5);

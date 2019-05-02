@@ -144,7 +144,7 @@ class CrushChecker {
             document.querySelector(".info").style.display = "block";
             const randomize = () => {
             this.newInitialSquares = new InitialSquares;
-            const doInitialSquares = this.newInitialSquares.initialSquares();
+            const doInitialSquares = this.newInitialSquares.initialSquares(document.querySelector(".pointsSpan").textContent);
             document.querySelector(".wrap").removeEventListener("mousedown", randomize);
             document.querySelector(".infoDiv").classList.remove("active");
             document.querySelector("p").style.display = "none";     

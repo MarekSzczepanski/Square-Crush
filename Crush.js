@@ -27,12 +27,12 @@ class Crush {
       if (i<15 && arrAllSquares[i].style.backgroundColor === arrAllSquares[i+5].style.backgroundColor && arrAllSquares[i].style.backgroundColor === arrAllSquares[i+10].style.backgroundColor) { 
         console.log("vertical crush");
         this.newAnimate = new Animate;
-        const doAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
-        const doAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i+5], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
-        const doAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+10], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
-        const doBorderAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "border", "solid black 1px", "solid white 1px"); 
-        const doBorderAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i+5], "border", "solid black 1px", "solid white 1px");
-        const doBorderAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+10], "border", "solid black 1px", "solid white 1px");
+        const doAnimate = this.newAnimate.animation(arrAllSquares[i], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
+        const doAnimate2 = this.newAnimate.animation(arrAllSquares[i+5], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
+        const doAnimate3 = this.newAnimate.animation(arrAllSquares[i+10], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
+        const doBorderAnimate = this.newAnimate.animation(arrAllSquares[i], "border", "solid black 1px", "solid white 1px"); 
+        const doBorderAnimate2 = this.newAnimate.animation(arrAllSquares[i+5], "border", "solid black 1px", "solid white 1px");
+        const doBorderAnimate3 = this.newAnimate.animation(arrAllSquares[i+10], "border", "solid black 1px", "solid white 1px");
         arrAllSquares[i].classList.remove("square");
         arrAllSquares[i].classList.add("space");
         arrAllSquares[i+5].classList.remove("square");
@@ -44,12 +44,12 @@ class Crush {
       if (i>0 && i<24 && arrAllSquares[i].style.backgroundColor === arrAllSquares[i-1].style.backgroundColor && arrAllSquares[i].style.backgroundColor === arrAllSquares[i+1].style.backgroundColor && arrAllSquares[i].classList.contains("row"+rowNumber) && arrAllSquares[i-1].classList.contains("row"+rowNumber) && arrAllSquares[i+1].classList.contains("row"+rowNumber)) {
         console.log("horizontal crush");
         this.newAnimate = new Animate;
-        const doAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
-        const doAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i-1], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
-        const doAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+1], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
-        const doBorderAnimate = this.newAnimate.squareAnimation(arrAllSquares[i], "border", "solid black 1px", "solid white 1px"); 
-        const doBorderAnimate2 = this.newAnimate.squareAnimation(arrAllSquares[i-1], "border", "solid black 1px", "solid white 1px");
-        const doBorderAnimate3 = this.newAnimate.squareAnimation(arrAllSquares[i+1], "border", "solid black 1px", "solid white 1px");
+        const doAnimate = this.newAnimate.animation(arrAllSquares[i], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
+        const doAnimate2 = this.newAnimate.animation(arrAllSquares[i-1], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
+        const doAnimate3 = this.newAnimate.animation(arrAllSquares[i+1], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
+        const doBorderAnimate = this.newAnimate.animation(arrAllSquares[i], "border", "solid black 1px", "solid white 1px"); 
+        const doBorderAnimate2 = this.newAnimate.animation(arrAllSquares[i-1], "border", "solid black 1px", "solid white 1px");
+        const doBorderAnimate3 = this.newAnimate.animation(arrAllSquares[i+1], "border", "solid black 1px", "solid white 1px");
         arrAllSquares[i].classList.remove("square");
         arrAllSquares[i].classList.add("space");
         arrAllSquares[i-1].classList.remove("square");
@@ -70,7 +70,170 @@ class Crush {
       }
       this.newSpaceChecker = new SpaceChecker;
       const doSpaceChecker = this.newSpaceChecker.spaceChecker();
-    }
+    }  
+    else if (document.querySelector(".movesSpan").textContent === "0") {
+      document.querySelector(".gameOver").classList.add("active");
+      document.querySelector(".gameOver").style.display = "block";
+        const newGameStart = (e) => {
+          document.querySelector(".gameOver").classList.remove("active");
+          document.querySelector(".gameOver").style.display = "none";
+          document.querySelector(".movesSpan").textContent = "30";
+          document.querySelector(".volume").style.display = "";
+          document.querySelector(".mute").style.display = "block";
+          let score = parseInt(document.querySelector(".pointsSpan").textContent, 10);
+          const highscores = () => {
+            const playerName = document.querySelector("input").value+": ";
+            if (score > parseInt(document.querySelector(".highscores"+1).textContent, 10) || document.querySelector(".highscores"+1).textContent === "") {
+              document.querySelector(".highscores"+10).textContent = document.querySelector(".highscores"+9).textContent;
+              document.querySelector(".highscores"+9).textContent = document.querySelector(".highscores"+8).textContent;
+              document.querySelector(".highscores"+8).textContent = document.querySelector(".highscores"+7).textContent;
+              document.querySelector(".highscores"+7).textContent = document.querySelector(".highscores"+6).textContent;
+              document.querySelector(".highscores"+6).textContent = document.querySelector(".highscores"+5).textContent;
+              document.querySelector(".highscores"+5).textContent = document.querySelector(".highscores"+4
+              ).textContent;
+              document.querySelector(".highscores"+4).textContent = document.querySelector(".highscores"+3).textContent;
+              document.querySelector(".highscores"+3).textContent = document.querySelector(".highscores"+2).textContent;
+              document.querySelector(".highscores"+2).textContent = document.querySelector(".highscores"+1).textContent;
+              document.querySelector(".highscores"+1).textContent = score;
+              document.querySelector(".playerName"+10).textContent = document.querySelector(".playerName"+9).textContent;
+              document.querySelector(".playerName"+9).textContent = document.querySelector(".playerName"+8).textContent;
+              document.querySelector(".playerName"+8).textContent = document.querySelector(".playerName"+7).textContent;
+              document.querySelector(".playerName"+7).textContent = document.querySelector(".playerName"+6).textContent;
+              document.querySelector(".playerName"+6).textContent = document.querySelector(".playerName"+5).textContent;
+              document.querySelector(".playerName"+5).textContent = document.querySelector(".playerName"+4).textContent;
+              document.querySelector(".playerName"+4).textContent = document.querySelector(".playerName"+3).textContent;
+              document.querySelector(".playerName"+3).textContent = document.querySelector(".playerName"+2).textContent;
+              document.querySelector(".playerName"+2).textContent = document.querySelector(".playerName"+1).textContent;
+              document.querySelector(".playerName"+1).textContent = playerName;
+            }
+            else if (score > parseInt(document.querySelector(".highscores"+2).textContent, 10) || document.querySelector(".highscores"+2).textContent === "") {
+              document.querySelector(".highscores"+10).textContent = document.querySelector(".highscores"+9).textContent;
+              document.querySelector(".highscores"+9).textContent = document.querySelector(".highscores"+8).textContent;
+              document.querySelector(".highscores"+8).textContent = document.querySelector(".highscores"+7).textContent;
+              document.querySelector(".highscores"+7).textContent = document.querySelector(".highscores"+6).textContent;
+              document.querySelector(".highscores"+6).textContent = document.querySelector(".highscores"+5).textContent;
+              document.querySelector(".highscores"+5).textContent = document.querySelector(".highscores"+4
+              ).textContent;
+              document.querySelector(".highscores"+4).textContent = document.querySelector(".highscores"+3).textContent;
+              document.querySelector(".highscores"+3).textContent = document.querySelector(".highscores"+2).textContent;
+              document.querySelector(".highscores"+2).textContent = score;
+              document.querySelector(".playerName"+10).textContent = document.querySelector(".playerName"+9).textContent;
+              document.querySelector(".playerName"+9).textContent = document.querySelector(".playerName"+8).textContent;
+              document.querySelector(".playerName"+8).textContent = document.querySelector(".playerName"+7).textContent;
+              document.querySelector(".playerName"+7).textContent = document.querySelector(".playerName"+6).textContent;
+              document.querySelector(".playerName"+6).textContent = document.querySelector(".playerName"+5).textContent;
+              document.querySelector(".playerName"+5).textContent = document.querySelector(".playerName"+4).textContent;
+              document.querySelector(".playerName"+4).textContent = document.querySelector(".playerName"+3).textContent;
+              document.querySelector(".playerName"+3).textContent = document.querySelector(".playerName"+2).textContent;
+              document.querySelector(".playerName"+2).textContent = playerName;
+            }
+            else if (score > parseInt(document.querySelector(".highscores"+3).textContent, 10) || document.querySelector(".highscores"+3).textContent === "") {
+              document.querySelector(".highscores"+10).textContent = document.querySelector(".highscores"+9).textContent;
+              document.querySelector(".highscores"+9).textContent = document.querySelector(".highscores"+8).textContent;
+              document.querySelector(".highscores"+8).textContent = document.querySelector(".highscores"+7).textContent;
+              document.querySelector(".highscores"+7).textContent = document.querySelector(".highscores"+6).textContent;
+              document.querySelector(".highscores"+6).textContent = document.querySelector(".highscores"+5).textContent;
+              document.querySelector(".highscores"+5).textContent = document.querySelector(".highscores"+4
+              ).textContent;
+              document.querySelector(".highscores"+4).textContent = document.querySelector(".highscores"+3).textContent;
+              document.querySelector(".highscores"+3).textContent = score;
+              document.querySelector(".playerName"+10).textContent = document.querySelector(".playerName"+9).textContent;
+              document.querySelector(".playerName"+9).textContent = document.querySelector(".playerName"+8).textContent;
+              document.querySelector(".playerName"+8).textContent = document.querySelector(".playerName"+7).textContent;
+              document.querySelector(".playerName"+7).textContent = document.querySelector(".playerName"+6).textContent;
+              document.querySelector(".playerName"+6).textContent = document.querySelector(".playerName"+5).textContent;
+              document.querySelector(".playerName"+5).textContent = document.querySelector(".playerName"+4).textContent;
+              document.querySelector(".playerName"+4).textContent = document.querySelector(".playerName"+3).textContent;
+              document.querySelector(".playerName"+3).textContent = playerName;
+            }
+            else if (score > parseInt(document.querySelector(".highscores"+4).textContent, 10) || document.querySelector(".highscores"+4).textContent === "") {
+              document.querySelector(".highscores"+10).textContent = document.querySelector(".highscores"+9).textContent;
+              document.querySelector(".highscores"+9).textContent = document.querySelector(".highscores"+8).textContent;
+              document.querySelector(".highscores"+8).textContent = document.querySelector(".highscores"+7).textContent;
+              document.querySelector(".highscores"+7).textContent = document.querySelector(".highscores"+6).textContent;
+              document.querySelector(".highscores"+6).textContent = document.querySelector(".highscores"+5).textContent;
+              document.querySelector(".highscores"+5).textContent = document.querySelector(".highscores"+4
+              ).textContent;
+              document.querySelector(".highscores"+4).textContent = score;
+              document.querySelector(".playerName"+10).textContent = document.querySelector(".playerName"+9).textContent;
+              document.querySelector(".playerName"+9).textContent = document.querySelector(".playerName"+8).textContent;
+              document.querySelector(".playerName"+8).textContent = document.querySelector(".playerName"+7).textContent;
+              document.querySelector(".playerName"+7).textContent = document.querySelector(".playerName"+6).textContent;
+              document.querySelector(".playerName"+6).textContent = document.querySelector(".playerName"+5).textContent;
+              document.querySelector(".playerName"+5).textContent = document.querySelector(".playerName"+4).textContent;
+              document.querySelector(".playerName"+4).textContent = playerName;
+            }
+            else if (score > parseInt(document.querySelector(".highscores"+5).textContent, 10) || document.querySelector(".highscores"+5).textContent === "") {
+              document.querySelector(".highscores"+10).textContent = document.querySelector(".highscores"+9).textContent;
+              document.querySelector(".highscores"+9).textContent = document.querySelector(".highscores"+8).textContent;
+              document.querySelector(".highscores"+8).textContent = document.querySelector(".highscores"+7).textContent;
+              document.querySelector(".highscores"+7).textContent = document.querySelector(".highscores"+6).textContent;
+              document.querySelector(".highscores"+6).textContent = document.querySelector(".highscores"+5).textContent;
+              document.querySelector(".highscores"+5).textContent = score;
+              document.querySelector(".playerName"+10).textContent = document.querySelector(".playerName"+9).textContent;
+              document.querySelector(".playerName"+9).textContent = document.querySelector(".playerName"+8).textContent;
+              document.querySelector(".playerName"+8).textContent = document.querySelector(".playerName"+7).textContent;
+              document.querySelector(".playerName"+7).textContent = document.querySelector(".playerName"+6).textContent;
+              document.querySelector(".playerName"+6).textContent = document.querySelector(".playerName"+5).textContent;
+              document.querySelector(".playerName"+5).textContent = playerName;
+            }
+            else if (score > parseInt(document.querySelector(".highscores"+6).textContent, 10) || document.querySelector(".highscores"+6).textContent === "") {
+              document.querySelector(".highscores"+10).textContent = document.querySelector(".highscores"+9).textContent;
+              document.querySelector(".highscores"+9).textContent = document.querySelector(".highscores"+8).textContent;
+              document.querySelector(".highscores"+8).textContent = document.querySelector(".highscores"+7).textContent;
+              document.querySelector(".highscores"+7).textContent = document.querySelector(".highscores"+6).textContent;
+              document.querySelector(".highscores"+6).textContent = score;
+              document.querySelector(".playerName"+10).textContent = document.querySelector(".playerName"+9).textContent;
+              document.querySelector(".playerName"+9).textContent = document.querySelector(".playerName"+8).textContent;
+              document.querySelector(".playerName"+8).textContent = document.querySelector(".playerName"+7).textContent;
+              document.querySelector(".playerName"+7).textContent = document.querySelector(".playerName"+6).textContent;
+              document.querySelector(".playerName"+6).textContent = playerName;
+            }
+            else if (score > parseInt(document.querySelector(".highscores"+7).textContent, 10) || document.querySelector(".highscores"+7).textContent === "") {
+              document.querySelector(".highscores"+10).textContent = document.querySelector(".highscores"+9).textContent;
+              document.querySelector(".highscores"+9).textContent = document.querySelector(".highscores"+8).textContent;
+              document.querySelector(".highscores"+8).textContent = document.querySelector(".highscores"+7).textContent;
+              document.querySelector(".highscores"+7).textContent = score;
+              document.querySelector(".playerName"+10).textContent = document.querySelector(".playerName"+9).textContent;
+              document.querySelector(".playerName"+9).textContent = document.querySelector(".playerName"+8).textContent;
+              document.querySelector(".playerName"+8).textContent = document.querySelector(".playerName"+7).textContent;
+              document.querySelector(".playerName"+7).textContent = playerName;
+            }
+            else if (score > parseInt(document.querySelector(".highscores"+8).textContent, 10) || document.querySelector(".highscores"+8).textContent === "") {
+              document.querySelector(".highscores"+10).textContent = document.querySelector(".highscores"+9).textContent;
+              document.querySelector(".highscores"+9).textContent = document.querySelector(".highscores"+8).textContent;
+              document.querySelector(".highscores"+8).textContent = score;
+              document.querySelector(".playerName"+10).textContent = document.querySelector(".playerName"+9).textContent;
+              document.querySelector(".playerName"+9).textContent = document.querySelector(".playerName"+8).textContent;
+              document.querySelector(".playerName"+8).textContent = playerName;
+            }
+            else if (score > parseInt(document.querySelector(".highscores"+9).textContent, 10) || document.querySelector(".highscores"+9).textContent === "") {
+              document.querySelector(".highscores"+10).textContent = document.querySelector(".highscores"+9).textContent;
+              document.querySelector(".highscores"+9).textContent = score;
+              document.querySelector(".playerName"+10).textContent = document.querySelector(".playerName"+9).textContent;
+              document.querySelector(".playerName"+9).textContent = playerName;
+            }
+            else if (score > parseInt(document.querySelector(".highscores"+10).textContent, 10) || document.querySelector(".highscores"+10).textContent === "") {
+              document.querySelector(".highscores"+10).textContent = score;
+              document.querySelector(".playerName"+10).textContent = playerName;
+            }
+          }
+          highscores();
+          document.querySelector(".pointsSpan").textContent = "0";
+          this.newGame = new Game;
+          if (e.target.classList.contains("changePlayer")) {
+            const doGame = this.newGame.setPlayerName();
+          }
+          else {
+            const doGame = this.newGame.noNewName();
+          }
+          document.querySelector(".newGame").removeEventListener("mousedown", newGameStart);
+          document.querySelector(".changePlayer").removeEventListener("mousedown", newGameStart);
+        }
+      document.querySelector(".changePlayer").addEventListener("mousedown", newGameStart);
+      document.querySelector(".newGame").addEventListener("mousedown", newGameStart);
+      return;
+    } 
     else if (crush === 0 && switchCheck === "switched") {
       this.newWrongSwitch = new WrongSwitch;
       const doWrongSwitch = this.newWrongSwitch.wrongSwitch();

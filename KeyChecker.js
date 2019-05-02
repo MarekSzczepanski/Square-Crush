@@ -1,8 +1,15 @@
 class KeyChecker {
     constructor() {
     }
-    keyChecker() {
+    keyChecker(wrongButton) {
         let clickTarget;
+        if (wrongButton !== "") { //bugfix of random keyboard smashing and clicking
+            for (let i=0; i<25; i++) {
+                if (document.getElementById(i).classList.contains("clicked")) {
+                    document.getElementById(i).classList.remove("clicked");
+                }
+            }
+        }
         const clickedCheck = (e) => {
             document.querySelector("div").removeEventListener("mousedown", clickedCheck);
             let clickedFlag = 0; // avoid multiple click targets
@@ -13,8 +20,14 @@ class KeyChecker {
                 }
             }
             if (clickedFlag === 0) {
-                e.target.classList.add("clicked");
-                console.log("clicked");
+                if (e.target.classList.contains("square")) {
+                    e.target.classList.add("clicked");
+                    console.log("clicked");
+                }
+                else {
+                    this.newKeyChecker = new KeyChecker;
+                    const doKeyChecker = this.newKeyChecker.keyChecker();
+                }
             }
             clickTarget = e.target;
         }  
@@ -140,7 +153,10 @@ class KeyChecker {
                 }
                 else {
                     console.log("wrong button");
-                    window.addEventListener("keydown", keyCheck);
+                    this.newKeyChecker = new KeyChecker;
+                    const doKeyChecker = this.newKeyChecker.keyChecker(document.querySelector(".clicked"));
+                    return;
+                    /* window.addEventListener("keydown", keyCheck); */
                 }
             }
         }

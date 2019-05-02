@@ -4,6 +4,11 @@ class WrongSwitch {
     }
     wrongSwitch() {
         console.log("wrong switch");
+        let moves = document.querySelector(".movesSpan").textContent;
+        const a = () => {
+          document.querySelector(".movesSpan").textContent = moves;
+        }
+        setTimeout(a, 1000);
         const move = document.querySelector(".move");
         const move2 = document.querySelector(".move2");
         const moveLeft = move.style.left;
@@ -18,8 +23,8 @@ class WrongSwitch {
         move2.classList.remove("move2");
         this.newAnimate = new Animate;
         if (moveLeft !== move2Left && moveTop === move2Top) {
-          const doAnimate = this.newAnimate.squareAnimation(move, "left", move2Left, moveLeft);
-          const doAnimate2 = this.newAnimate.squareAnimation(move2, "left", moveLeft, move2Left);
+          const doAnimate = this.newAnimate.animation(move, "left", move2Left, moveLeft);
+          const doAnimate2 = this.newAnimate.animation(move2, "left", moveLeft, move2Left);
           if (move.classList.contains("column1")) {
             moveColumnOrRow = "column1";
           }
@@ -52,8 +57,8 @@ class WrongSwitch {
           }
         }
         else if (moveTop !== move2Top && moveLeft === move2Left) {
-          const doAnimate = this.newAnimate.squareAnimation(move, "top", move2Top, moveTop);
-          const doAnimate2 = this.newAnimate.squareAnimation(move2, "top", moveTop, move2Top);
+          const doAnimate = this.newAnimate.animation(move, "top", move2Top, moveTop);
+          const doAnimate2 = this.newAnimate.animation(move2, "top", moveTop, move2Top);
           if (move.classList.contains("row1")) {
             moveColumnOrRow = "row1";
           }

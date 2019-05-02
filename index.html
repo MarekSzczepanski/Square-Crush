@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Square Crush</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <audio autoplay muted>
+        <source src="Chopin.mp3" type="audio/ogg">
+    </audio>
     <div class = "wrap">
         <div id= "0" class= "row1 column1 space"></div>
         <div id= "1" class= "row1 column2 space"></div>
@@ -35,13 +39,63 @@
         <div id= "22" class= "row5 column3 space"></div>
         <div id= "23" class= "row5 column4 space"></div>
         <div id= "24" class= "row5 column5 space"></div>
+        <div class = "curtain"></div>
+        <div class = "wrapBorder">
+            <div class = left></div>
+            <div class = right></div>
+            <div class = down></div>
+        </div>
         <div class= "infoDiv">
-            <p class= "info">No move possible! Click to randomize square colors.</p>
+            <p class= "info">No move possible! Click to randomize</p>
+        </div>
+        <div class= "gameOver">
+            <p>Game over</p>
+            <div class= "newGame">
+                <p>New game</p>
+            </div>
+            <div class= "changePlayer">
+                <p class ="changePlayer">Change player</p>
+            </div>
+        </div>
+        <div class = "crushed">
+            <p class = "points">Squares crushed: <span class = "pointsSpan">0</span></p>
+        </div> 
+        <div class = "moves">
+            <p class = "movesLeft">Moves: <span class = "movesSpan">30</span></p>
+        </div>
+        <div class = "highscores">
+            <div class = "highscoresHead">
+                <p>highscores:</p>
+            </div>
+            <p><span class = "playerName1"></span><span class = "highscores1"></span></p>
+            <p><span class = "playerName2"></span><span class = "highscores2"></span></p>
+            <p><span class = "playerName3"></span><span class = "highscores3"></span></p>
+            <p><span class = "playerName4"></span><span class = "highscores4"></span></p>
+            <p><span class = "playerName5"></span><span class = "highscores5"></span></p>
+            <p><span class = "playerName6"></span><span class = "highscores6"></span></p>
+            <p><span class = "playerName7"></span><span class = "highscores7"></span></p>
+            <p><span class = "playerName8"></span><span class = "highscores8"></span></p>
+            <p><span class = "playerName9"></span><span class = "highscores9"></span></p>
+            <p><span class = "playerName10"></span><span class = "highscores10"></span></p>
+        </div>
+        <div class = "startDiv">
+            <p class = "startP">Enter your name:</p>
+            <form>
+                <input class = "startInput" value = "Player"><button class = "startButton">start game</button>
+            </form>
+        </div> 
+        <div class = "nameError">
+            <p class = "nameErrorP">Name is too long!</p>
+            <button class = "nameErrorButton">Ok</button>
+        </div>
+        <div class = "music">
+            <i class="volume fas fa-volume-up"></i>
+            <i class="mute fas fa-volume-mute"></i>
+        </div>
+        <div class = "musicChoice">
+            <p>Change song</p>
         </div>
     </div>
-    <div class = "side">
-        <p class = "points">Squares crushed: <span>0</span></p>
-    </div> 
     <script src="CrushChecker.js"></script>
     <script src="WrongSwitch.js"></script>
     <script src="Animate.js"></script>
@@ -53,5 +107,6 @@
     <script src="RandomSquareColor.js"></script>
     <script src="InitialSquares.js"></script>
     <script src="Game.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
