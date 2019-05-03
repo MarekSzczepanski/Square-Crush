@@ -20,20 +20,16 @@ body {
     background-color: white;
 }
 
-.square {
+.space, .square {
     width: 100px;
     height: 100px;
     box-sizing: border-box;
-    border: solid black 1px;
     position: absolute;
-    top: -100px;
 }
 
-.space {
-    width: 100px;
-    height: 100px;
-    box-sizing: border-box;
-    position: absolute;
+.square {
+    border: solid black 1px;
+    top: -100px;
 }
 
 div div {
@@ -59,7 +55,7 @@ div div {
     display: none;
 }
 
-.crushed {
+.crushed, .moves, .highscores {
     width: 220px;
     height: 30px;
     background-color: darkgray;
@@ -72,13 +68,8 @@ div div {
 
 .moves {
     width: 120px;
-    height: 30px;
-    background-color: darkgray;
-    position: absolute;
     left: 20px;
     top: -50px;
-    text-align: center;
-    line-height: 30px;
     z-index: 3;
 }
 
@@ -118,6 +109,13 @@ div div {
     background-color: black;
 }
 
+.up {
+    width: 500px;
+    height: 1px;
+    background-color: black;
+    top: 3px;
+}
+
 .gameOver {
     font-size: 60px;
     color: red;
@@ -127,7 +125,7 @@ div div {
     line-height: 150px;
 }
 
-.newGame {
+.newGame, .changePlayer {
     width: 300px;
     height: 40px;
     background-color: white;
@@ -139,14 +137,7 @@ div div {
 }
 
 .changePlayer {
-    width: 300px;
-    height: 40px;
-    background-color: white;
-    opacity: 1;
     bottom: 30px;
-    left: 48px;
-    border-radius: 10px 10px;
-    line-height: 40px;
 }
 
 .newGame p, .changePlayer p {
@@ -156,16 +147,13 @@ div div {
     font-weight: bold;
 }
 
-.newGame:hover, .infoDiv:hover, .changePlayer {
+.newGame:hover, .infoDiv:hover, .startButtonActive:hover, .changePlayer, .instructionButton, .music, .musicChoice, .howToPlay button {
     cursor: pointer;
 }
 
 .highscores {
-    width: 220px;
     height: 350px;
-    background-color: darkgray;
     position: relative;
-    left: -240px;
     top: 100px;
     text-align: center;
     line-height: 35px;
@@ -191,7 +179,7 @@ div div {
     display: none;
 }
 
-.startButtonActive {
+.startButtonActive, .howToPlay button, .instructionButton, .nameErrorButton {
     width: 150px;
     height: 25px;
     position: absolute;
@@ -203,6 +191,14 @@ div div {
     background-color: slategray;
     border: solid white 1px;
     color: white;
+}
+
+.nameErrorButton {
+    width: 100px;
+    height: 20px;
+    top: 160px;
+    left: 100px;
+    opacity: 0.9;
 }
 
 .startButton {
@@ -237,20 +233,6 @@ div div {
     font-size: 27px;
     color: red;
     text-align: center;
-}
-
-.nameErrorButton {
-    width: 100px;
-    height: 20px;
-    position: absolute;
-    bottom: 25px;
-    left: 100px;
-    letter-spacing: 1px;
-    font-weight: bold;
-    background-color: slategray;
-    border: solid white 1px;
-    color: white;
-    opacity: 0.9;
 }
 
 .highscoresHead {
@@ -308,5 +290,87 @@ div div {
 .musicChoiceActive p:hover {
     cursor: pointer;
     color: royalblue;
+}
+
+.wrongButton {
+    background-color: black;
+    color: #FF3333;
+    font-size: 40px;
+    top: 220px;
+    left: 79px;
+    letter-spacing: 2px;
+    text-align: center;
+    padding-left: 5px;
+    z-index: 4;
+    display: none; 
+}
+
+.howToPlay {
+    width: 400px;
+    height: 60px;
+    line-height: 125px;
+    background-color: black;
+    top: 400px;
+    left: 50px;
+    opacity: 0.9;
+    z-index: 2;
+    border: white 2px solid;
+    display: none;
+}
+
+.howToPlay button{
+    top: 17.5px;
+}
+
+.instruction {
+    margin: 10% 10% 10% 30%;
+    height: 500px;
+    width: 500px;
+    border: solid black 3px; 
+    position: relative;
+    background-color: white;
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    display: none;
+}
+
+.arrowsImage, .clickImage {
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    top: 50px;
+    left: 280px;
+}
+
+.clickImage {
+    left: 30px;
+}
+
+.instruction p {
+  text-align: center;
+  padding: 10px 30px;
+}
+
+.secondP {
+    position: absolute;
+    top: 190px;
+}
+
+.horizontalCrushImage, .verticalCrushImage {
+    width: 200px;
+    position: absolute;
+    top: 260px;
+    left: 20px;
+}
+
+.verticalCrushImage {
+    left: 280px;
+}
+
+.instructionButton {
+    top: 470px;
+    left: 175px;
+    border: solid black 1px;
 }
 

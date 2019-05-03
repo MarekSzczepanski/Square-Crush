@@ -1,6 +1,5 @@
 class NewSquaresAfterCrush {
     constructor() {
-
     }
     newSquaresAfterCrush(iFor, iFor2, topISquare, topNewSquare, rowNumber) {
         for (let i=iFor; i<iFor2; i++) {

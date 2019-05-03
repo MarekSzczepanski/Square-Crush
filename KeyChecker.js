@@ -152,11 +152,20 @@ class KeyChecker {
                     }
                 }
                 else {
-                    console.log("wrong button");
+                    this.newAnimate = new Animate;
+                    const doAnimate = this.newAnimate.animation(document.querySelector(".wrongButton"), "backgroundColor", "transparent", "black");
+                    document.querySelector(".wrongButton").style.display = "block";
+                    const wrongButtonErrorDisappear = () => {
+                        const doAnimate2 = this.newAnimate.animation(document.querySelector(".wrongButton"), "backgroundColor", "black", "transparent");
+                        const textDisappear = () => {
+                            document.querySelector(".wrongButton").style.display = "none";
+                        }
+                        setTimeout(textDisappear, 600);
+                    }
+                    setTimeout(wrongButtonErrorDisappear, 1000);
                     this.newKeyChecker = new KeyChecker;
                     const doKeyChecker = this.newKeyChecker.keyChecker(document.querySelector(".clicked"));
                     return;
-                    /* window.addEventListener("keydown", keyCheck); */
                 }
             }
         }

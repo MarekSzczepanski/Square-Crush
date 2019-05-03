@@ -5,6 +5,20 @@ class Game {
     }
     setPlayerName() {
         const start = () => {
+            if (document.querySelector(".highscores1").textContent === "") {
+                document.querySelector(".howToPlay").style.display = "block";
+                const showTutorial = () => {
+                    document.querySelector(".instruction").style.display = "block";
+                    const backToMenu = () => {
+                        document.querySelector(".instruction").style.display = "none";
+                    }
+                    document.querySelector(".instructionButton").addEventListener("mousedown", backToMenu);
+                }
+                document.querySelector(".howToPlay").addEventListener("mousedown", showTutorial);
+            }
+            else {
+                document.querySelector(".howToPlay").style.display = "none"; 
+            }
             document.querySelector(".startDiv").classList.add("active");
             document.querySelector(".startP").classList.add("startPActive");
             document.querySelector(".startInput").classList.add("startInputActive");

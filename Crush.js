@@ -25,7 +25,6 @@ class Crush {
         rowNumber = 5;
       }
       if (i<15 && arrAllSquares[i].style.backgroundColor === arrAllSquares[i+5].style.backgroundColor && arrAllSquares[i].style.backgroundColor === arrAllSquares[i+10].style.backgroundColor) { 
-        console.log("vertical crush");
         this.newAnimate = new Animate;
         const doAnimate = this.newAnimate.animation(arrAllSquares[i], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
         const doAnimate2 = this.newAnimate.animation(arrAllSquares[i+5], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
@@ -42,7 +41,6 @@ class Crush {
         crush = 1;
       }
       if (i>0 && i<24 && arrAllSquares[i].style.backgroundColor === arrAllSquares[i-1].style.backgroundColor && arrAllSquares[i].style.backgroundColor === arrAllSquares[i+1].style.backgroundColor && arrAllSquares[i].classList.contains("row"+rowNumber) && arrAllSquares[i-1].classList.contains("row"+rowNumber) && arrAllSquares[i+1].classList.contains("row"+rowNumber)) {
-        console.log("horizontal crush");
         this.newAnimate = new Animate;
         const doAnimate = this.newAnimate.animation(arrAllSquares[i], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");
         const doAnimate2 = this.newAnimate.animation(arrAllSquares[i-1], "backgroundColor", document.getElementById(i).style.backgroundColor, "white");

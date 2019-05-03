@@ -1,6 +1,5 @@
 class SquareSwitcher {
     constructor() {
-
     }
     squareSwitcher(position, position2, columnOrRowNumber, columnOrRowNumber2, leftOrTop, clickedId, secondId) {
         let moves = document.querySelector(".movesSpan").textContent;
@@ -26,7 +25,6 @@ class SquareSwitcher {
             secondSquare.classList.add(columnOrRowNumber);
             clickedSquare.classList.add("move");
             secondSquare.classList.add("move2");
-            console.log("moved");
             const crushTimeout = () => {
                 this.newCrush = new Crush;
                 const doCrush = this.newCrush.crush("switched");

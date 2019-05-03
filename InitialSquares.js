@@ -4,6 +4,9 @@ class InitialSquares {
     }
     initialSquares(points) {
         for (let i=24; i>-1; i--) {
+            if (document.querySelector(".howToPlay").style.display = "block") {
+                document.querySelector(".howToPlay").style.display = "none"; 
+            }
             document.querySelector(".pointsSpan").textContent = points;
             console.log(points);
             const iSquare = document.getElementById(i);

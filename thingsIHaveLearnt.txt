@@ -1,3 +1,4 @@
+Some unexpected things I have learnt during the project:
 1) How to make keyframes animations in JS.
 2) When animate method was used to change div's position, other animation has to be used to change it's position again. Example:
 
