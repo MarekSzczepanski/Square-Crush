@@ -22,7 +22,6 @@ class KeyChecker {
             if (clickedFlag === 0) {
                 if (e.target.classList.contains("square")) {
                     e.target.classList.add("clicked");
-                    console.log("clicked");
                 }
                 else {
                     this.newKeyChecker = new KeyChecker;

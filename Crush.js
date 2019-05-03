@@ -237,7 +237,6 @@ class Crush {
       const doWrongSwitch = this.newWrongSwitch.wrongSwitch();
     }
     else if (crush === 0) {
-      console.log("no crush");
       this.newCrushChecker = new CrushChecker;
       const doCrushChecker = this.newCrushChecker.crushChecker();
     }

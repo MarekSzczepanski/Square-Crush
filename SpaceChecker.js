@@ -6,7 +6,6 @@ class SpaceChecker {
         let squaresCrushed = document.querySelector(".pointsSpan").textContent;
         for (let i=0; i<25; i++) {
             if (document.getElementById(i).classList.contains("space")) {
-                console.log("space");
                 space = 1; 
             }
         }
@@ -63,7 +62,6 @@ class SpaceChecker {
             setTimeout(timeout, 1000);
         }
         else if (space === 0) {
-            console.log("no space");
             this.newCrush = new Crush;
             const doCrush = this.newCrush.crush();
         } 

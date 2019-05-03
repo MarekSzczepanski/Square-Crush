@@ -8,7 +8,6 @@ class InitialSquares {
                 document.querySelector(".howToPlay").style.display = "none"; 
             }
             document.querySelector(".pointsSpan").textContent = points;
-            console.log(points);
             const iSquare = document.getElementById(i);
             this.newColor = new RandomSquareColor;
             const color = this.newColor.getRandomColor();   

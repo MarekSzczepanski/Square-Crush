@@ -139,7 +139,6 @@ class CrushChecker {
             }
         }
         if (crush === 0) {
-            console.log("randomize");
             document.querySelector(".infoDiv").classList.add("active");
             document.querySelector(".info").style.display = "block";
             const randomize = () => {

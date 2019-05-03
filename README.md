@@ -10,7 +10,4 @@ Square crush is a browser game inspired by Candy Crush Saga, which is my wife's 
 ⋅Javascript  
 
 ## Recent changes
-1) Add wrong button error div.  
-2) Add tutorial.   
-3) Add favicon.  
-4) Minor code fixes.
+1) Remove console logs.

@@ -2,7 +2,6 @@ class WrongSwitch {
   constructor() {
   }
   wrongSwitch() {
-    console.log("wrong switch");
     let moves = document.querySelector(".movesSpan").textContent;
     const movesBack = () => {
       document.querySelector(".movesSpan").textContent = moves;
