@@ -367,3 +367,19 @@ div div {
     border: solid black 1px;
 }
 
+.musicCredits {
+    position: absolute;
+    top: 540px;
+    left: -47.5px;
+    width: 600px;
+    text-align: center;
+}
+
+.musicCredits h1 {
+    font-size: 13px;
+}
+
+.musicCredits p {
+    font-size: 11px;
+}
+
